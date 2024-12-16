@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  font-family: Roboto, Helvetica, sans-serif;
+}
+
+body {
+  margin: 2rem;
+}
+
+#app-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

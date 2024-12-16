@@ -1,0 +1,11 @@
+<div class="pix-circle-card">
+  <h2>{{ pixCircle.title  }}</h2>
+  <p>{{ pixCircle.description  }}</p>
+  <!-- Avec le "Attribute Binding" Angular associe les valeurs des propriétés TypeScript aux attributs de l'élément HTML -->
+  <img [src]="pixCircle.imageUrl" [alt]="pixCircle.title">
+  <p>PixCircle créée le {{ pixCircle.createdDate | date:'dd/MM/yyyy HH:mm:ss' }}</p>
+  <p>
+    <!-- Event Binding pour lier la méthode au click sur le button -->
+    <button (click)="onLike()">{{ likeButton  }}</button>
+    👍 {{ pixCircle.likes }}</p>
+</div>
