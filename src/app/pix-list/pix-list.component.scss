@@ -1,16 +1,46 @@
 .pix-circle-card {
+  box-sizing: border-box;
   width: 50%;
+  margin: 40px auto;
+  padding: 10px 30px;
+  box-shadow: lightgray 4px 4px 20px;
+  border-radius: 20px;
   img {
     width: 100%;
     border-radius: 20px;
   }
+  h2 {
+    margin-bottom: 0;
+  }
+  p {
+    font-weight: 300;
+    font-size: 16px;
+  }
   button {
-    border-radius: 15px;
-    cursor: pointer;
-    background-color: rgb(112, 216, 136);
-    border-color: rgb(24, 137, 228);
-    border-width: 2px;
-    box-shadow: inset;
+    box-sizing: border-box;
     padding: 5px 10px;
+    border-radius:  20px;
+    box-shadow: lightgray 3px 3px 7px;
+    margin-right: 20px;
+    outline: none;
+    font-size: 14px;
+    font-weight: 500;
+    &:active {
+      transform: translate(1px, 1px);
+      // Simule l'appui sur le button au click
+      box-shadow: lightgray 0 0 5px;
+    }
+  }
+}
+
+.liked {
+  background-color: rgba(lightgreen, 0.3);
+  color: darkgreen;
+  button {
+    box-shadow: lightgreen 3px 3px 7px;
+    color: darkgreen;
+    &:active {
+      box-shadow: lightgreen 0 0 5px;
+    }
   }
 }

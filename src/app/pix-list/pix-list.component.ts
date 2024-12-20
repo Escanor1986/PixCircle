@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe, NgClass, NgStyle, TitleCasePipe } from '@angular/common';
 import { PixCircle } from '../models/pix-circle';
 
 @Component({
   selector: 'app-pix-list',
-  imports: [CommonModule], // Importe les fonctionnalités de base (ngIf, ngFor, etc.)
+  // Importe les fonctionnalités de base (ngIf, ngFor, etc.)
+  imports: [CommonModule, NgClass, NgStyle, TitleCasePipe, DatePipe], 
   templateUrl: './pix-list.component.html',
   styleUrls: ['./pix-list.component.scss']
 })
@@ -25,14 +26,9 @@ export class PixListComponent {
 
   // Le nom de méthode qui commence par on signale que cette méthode répond à un événement.
   onLike(): void {
-    if (this.hasLiked === false) {
-      this.pixCircle.addLike();
-      this.likeButton = "Oups ! unPix ?"
-      this.hasLiked = true;
-    } else {
-      this.pixCircle.removeLike;
-      this.likeButton = "Oh Pix!"
-      this.hasLiked = false;
-    }
+    this.hasLiked = !this.hasLiked; 
+    this.likeButton = this.hasLiked ? "Oups ! unPix ?" : "Oh Pix!";
+    this.hasLiked ? this.pixCircle.addLike() : this.pixCircle.removeLike();
   }
+  
 }

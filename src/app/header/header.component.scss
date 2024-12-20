@@ -1,0 +1,8 @@
+/* width: 100% également appliqué à l'élément parent "app-header" pour que la propriété fonctionne */
+header {
+  display: flex;
+  flex: 1 0 auto; /* Prend tout l'espace restant */
+  width: 100%; /* Assure que le header occupe la largeur disponible */
+  justify-content: center;
+  box-shadow: var(--button-border-color) 4px 4px 10px;
+}
