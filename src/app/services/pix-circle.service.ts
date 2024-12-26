@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { PixCircle } from "../models/pix-circle";
+import { PixType } from "../models/pix-type.type";
 
 @Injectable ({
   providedIn: 'root', // Dis à Angular qu'il faut enregistrer ce service à la racine du projet
@@ -47,5 +48,18 @@ export class PixCircleServices {
   getPixCircle(): PixCircle[] {
     // On retourne une "shallow-copy" du tableau
     return [...this.myPixs];
+  }
+
+  likePixById(pixCircleId: string, pixType: PixType): void {
+    try {
+      const foundPixCircleById = this.myPixs.find(pixCircle => pixCircle.id === pixCircleId);
+      if (!foundPixCircleById) {
+        throw new Error;
+      } else {
+       foundPixCircleById.like(pixType);
+      }
+    } catch(e) {
+      console.log(`Oups... Seems we cannot find the right ID : ${e}`);
+    }
   }
 }

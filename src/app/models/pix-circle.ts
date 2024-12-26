@@ -1,3 +1,5 @@
+import { PixType } from "./pix-type.type";
+
 export class PixCircle {
   // Propriétés de la classe PixCircle
   title: string; 
@@ -6,6 +8,7 @@ export class PixCircle {
   likes: number;
   imageUrl: string; 
   location?: string; // Propriété optionnelle, représente la localisation associée à l'image
+  id: string;
 
   constructor(
     title: string, 
@@ -23,6 +26,8 @@ export class PixCircle {
     this.createdDate = createdDate;
     this.likes = likes;
     this.location = location; // La localisation est optionnelle, elle peut être undefined
+    this.id = crypto.randomUUID().substring(0, 20);
+    console.log(this);
   }
 
   // Méthode pour ajouter un "like" à l'image
@@ -33,6 +38,14 @@ export class PixCircle {
   // Méthode pour retirer un "like" de l'image
   removeLike() {
     this.likes--;  
+  }
+
+  like(pixType: PixType) {
+    if (pixType === "liked") {
+      this.addLike();
+    } else if (pixType === "unliked") {
+      this.removeLike();
+    }
   }
 
   // Méthode pour définir ou mettre à jour la localisation de l'image

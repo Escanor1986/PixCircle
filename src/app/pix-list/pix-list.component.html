@@ -1,4 +1,5 @@
-<div class="card pix-circle-card" [ngClass]="{'liked': hasLiked}">
+<div class="card pix-circle-card">
+  <div class="ribbon" [ngClass]="{'liked': hasLiked}" >Liked !</div>
   <h2>{{ pixCircle.title }}</h2>
   @if (pixCircle.location) {
     <!-- il est fortement déconseillé d'utiliser les pipes ailleurs que dans une string interpolation -->
@@ -13,6 +14,6 @@
   <p>
     <!-- Event Binding pour lier la méthode au click sur le button -->
     <button (click)="onLike()">{{ likeButton }}</button>
-    <span [ngStyle]="{ color: 'rgb(0, ' + pixCircle.likes + ', 0)' }">🤌 {{ pixCircle.likes }}</span>
+    <span [ngStyle]="{ color: 'rgb(0, ' + pixCircle.likes + ', 0)' }">👍 {{ pixCircle.likes }}</span>
   </p>
 </div>

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule, DatePipe, NgClass, NgStyle, TitleCasePipe } from '@angular/common';
 import { PixCircle } from '../models/pix-circle';
+import { PixCircleServices } from '../services/pix-circle.service';
 
 @Component({
   selector: 'app-pix-list',
@@ -19,6 +20,9 @@ export class PixListComponent {
   hasLiked!: boolean;
   likeButton!: string;
 
+  constructor(private pixCircleServices: PixCircleServices) {
+  }
+
   ngOnInit(): void {
     this.hasLiked = false;
     this.likeButton = "Oh Pix!";
@@ -28,7 +32,7 @@ export class PixListComponent {
   onLike(): void {
     this.hasLiked = !this.hasLiked; 
     this.likeButton = this.hasLiked ? "Oups ! unPix ?" : "Oh Pix!";
-    this.hasLiked ? this.pixCircle.addLike() : this.pixCircle.removeLike();
+    this.hasLiked ? this.pixCircleServices.likePixById(this.pixCircle.id, 'liked') : this.pixCircleServices.likePixById(this.pixCircle.id, 'unliked');
   }
   
 }
