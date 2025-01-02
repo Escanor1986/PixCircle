@@ -1,0 +1,33 @@
+<section> 
+  <article>
+    <h1>Welcome on PixCircle !</h1>
+    <h2>Your friendly picture's app sharing</h2>
+    <p>
+      PixCircle vous permet de partager vos plus belles photos avec vos amis, votre famille, 
+      ou la communauté entière. Téléchargez vos clichés et offrez-leur la visibilité qu’ils méritent !
+    </p>
+    <button>Join us now!</button>
+  </article>
+
+  <aside>
+    <!-- Loader -->
+    <div *ngIf="isImageLoading" class="loader">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+
+    <!-- Container pour l'image -->
+    <div class="img-container">
+      <img
+        [ngStyle]="{ display: isImageLoading ? 'none' : 'block' }"
+        [ngSrc]="landingPageUrlImg"
+        (load)="onImageLoad()"
+        (error)="onImageError()"
+        alt="Landing Page"
+        fill
+        priority
+      />
+    </div>
+  </aside>
+</section>

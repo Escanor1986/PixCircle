@@ -33,27 +33,11 @@
     }
   }
 }
-
-.liked {
-  background-color: rgba(lightgreen, 0.3);
-  color: darkgreen;
-  button {
-    box-shadow: lightgreen 3px 3px 7px;
-    color: darkgreen;
-    &:active {
-      box-shadow: lightgreen 0 0 5px;
-    }
-  }
-}
-
-.ribbon.liked {
+.ribbon {
   font-size: 28px;
   font-weight: bold;
   color: #fff;
-}
-.ribbon.liked {
   position: absolute;
-  display: block;
   top: 0;
   right: 0;
   line-height: 1.8;
@@ -64,9 +48,21 @@
     100% calc(100% - var(--f)),100% 100%,calc(100% - var(--f)) calc(100% - var(--f)),var(--f) calc(100% - var(--f)), 0 100%,0 calc(100% - var(--f)),999px calc(100% - var(--f) - 999px),calc(100% - 999px) calc(100% - var(--f) - 999px));
   transform: translate(calc((1 - cos(45deg))*100%), -100%) rotate(45deg);
   transform-origin: 0% 100%;
-  background-color: var(--button-background-color); 
+  background-color: var(--button-background-color);
+  
+  /* Permet de rendre l'élément visible/invisible avec une transition fluide */
+  opacity: 0;
+  /* Masque complètement l'élément quand il est invisible pour éviter qu'il occupe de l'esapce dans le DOM */
+  visibility: hidden;
+  /* empêche les interactions avec l'élément lorsqu'il est invisible */
+  pointer-events: none;
+
+  transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
 
-.ribbon {
-  display: none; 
+/* État "liked" */
+.ribbon.liked {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }

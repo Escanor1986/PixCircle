@@ -1,8 +1,15 @@
-/* width: 100% également appliqué à l'élément parent "app-header" pour que la propriété fonctionne */
+:host {
+  /* ici :host représente <app-header> */
+  flex: 0 0 10%;  /* 10% de la hauteur parent (qui est app-root à 100%) */
+  width: 100%;
+  display: flex;  /* si besoin d’un display flex */
+}
+
+/* Ensuite, styliser le <header> interne si nécessaire */
 header {
+  width: 100%;
   display: flex;
-  flex: 1 0 auto; /* Prend tout l'espace restant */
-  width: 100%; /* Assure que le header occupe la largeur disponible */
   justify-content: center;
+  align-items: center;
   box-shadow: var(--button-border-color) 4px 4px 10px;
 }

@@ -25,13 +25,13 @@ export class PixListComponent {
 
   ngOnInit(): void {
     this.hasLiked = false;
-    this.likeButton = "Oh Pix!";
+    this.likeButton = "Pix ?";
   }
 
   // Le nom de méthode qui commence par on signale que cette méthode répond à un événement.
   onLike(): void {
     this.hasLiked = !this.hasLiked; 
-    this.likeButton = this.hasLiked ? "Oups ! unPix ?" : "Oh Pix!";
+    this.likeButton = this.hasLiked ? "UnPix ?" : "Pix ?";
     this.hasLiked ? this.pixCircleServices.likePixById(this.pixCircle.id, 'liked') : this.pixCircleServices.likePixById(this.pixCircle.id, 'unliked');
   }
   

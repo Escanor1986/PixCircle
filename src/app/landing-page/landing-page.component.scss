@@ -1,0 +1,129 @@
+:host {
+  /* L'hôte du composant (app-landing-page) */
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;      /* Centre verticalement en desktop */
+  justify-content: center;  /* Centre horizontalement <section> */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* SECTION PRINCIPALE */
+section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;      /* Centre verticalement (desktop) */
+  justify-content: center;  /* Centre horizontalement */
+  height: 100vh;            /* Mode plein écran sur desktop */
+  width: 100%;
+
+  /* --- ARTICLE (texte) --- */
+  article {
+    flex: 0 0 40%;          /* 40% de la largeur sur desktop */
+    padding: 2rem;
+    box-sizing: border-box;
+
+    h1, h2 {
+      margin: 0.5rem 0;
+    }
+    p {
+      margin-top: 1rem;
+      line-height: 1.5;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 0.25rem;
+    }
+  }
+
+  /* --- ASIDE (image) --- */
+  aside {
+    flex: 0 0 58%;          /* 58% de la largeur sur desktop */
+    height: 60%;            /* 60% de la hauteur du parent (100vh) */
+    padding: 2rem;
+    box-sizing: border-box;
+    position: relative;     /* Si vous voulez des effets positionnels */
+
+    .loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 2rem 0;
+
+      .circle {
+        width: 1rem;
+        height: 1rem;
+        margin: 0 0.25rem;
+        border-radius: 50%;
+        background-color: #007bff;
+        animation: scaleInOut 1s infinite ease-in-out;
+      }
+      @keyframes scaleInOut {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.5);
+        }
+      }
+    }
+
+    .img-container {
+      width: 100%;
+      height: 100%;         /* Remplit tout l'espace de aside */
+      img {
+        width: 100%;
+        height: 100%;       /* L'image occupe 100% de .img-container */
+        object-fit: cover;  /* Remplit le bloc en gardant son ratio, rognage possible */
+      }
+    }
+  }
+
+  /* --- MEDIA QUERY : MOBILE (ou tablettes) --- */
+  @media (max-width: 768px) {
+    /* On empile article et aside en colonne */
+    flex-direction: column;
+
+    /* Section n'est plus bloqué en 100vh => s'adapte à la taille du contenu */
+    section {
+      height: auto;
+    }
+
+    /* Article & aside reprennent 90% de la largeur */
+    article,
+    aside {
+      width: 100%;           /* ou 100% si besoin */
+      height: 50%;
+      flex: 0 0 auto;       /* annule le flex-basis desktop */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 1rem;        /* réduit les paddings sur mobile */
+      box-sizing: border-box;
+    }
+
+    aside {       /* on retire la contrainte de 60% en mobile */
+      .img-container {
+        width: 100%;
+        height: auto;       /* l'image container s'adapte au contenu */
+
+        /* 
+         * Si vous voulez vraiment “déformer” l’image sur mobile 
+         * (ne pas garder ses proportions) => object-fit: fill
+         * + height: 100% 
+         */
+        img {
+          width: 100%;
+          height: auto;     /* Garde le ratio si object-fit: cover */
+          object-fit: cover; 
+        }
+      }
+    }
+  }
+}

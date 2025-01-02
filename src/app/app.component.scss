@@ -1,8 +1,8 @@
-app-pix-list {
+:host {
+  /* Le :host correspond à app-root */
   display: flex;
-  justify-content: center;
-}
-
-app-header {
+  flex-direction: column;
+  height: 100%; /* Pour occuper tout l'espace vertical du viewport */
   width: 100%;
+  box-sizing: border-box;
 }
