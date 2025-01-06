@@ -1,15 +1,23 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
-  imports: [CommonModule, NgOptimizedImage],
+  imports: [CommonModule, NgOptimizedImage, RouterLink],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss'
 })
 export class LandingPageComponent {
   isImageLoading = true;
   landingPageUrlImg = "landing_page.webp";
+
+  constructor(private router: Router) {}
+
+  onContinue(): void {
+    this.router.navigateByUrl('pixcircles');
+  }
 
   onImageLoad(): void {
     this.isImageLoading = false; // L'image est chargée, on cache le loader

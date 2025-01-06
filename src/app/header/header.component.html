@@ -1,3 +1,22 @@
-<header >
-  <h1>PixCircle !</h1>
+<header>
+  <div class="logo">
+    <h1>PixCircle!</h1>
+  </div>
+  <nav class="navigation">
+    <ul>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="" >Accueil</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="pixcircles">Your Pixs</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a>À propos</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a>Contact</a></li>
+    </ul>
+  </nav>
+  <div class="header-actions">
+    <div class="search-bar">
+      <input type="text" placeholder="Rechercher...">
+      <button type="submit">🔍</button>
+    </div>
+    <div class="login">
+      <a>Connexion</a>
+    </div>
+  </div>
 </header>

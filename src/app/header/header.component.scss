@@ -1,15 +1,135 @@
-:host {
+//  :host {
   /* ici :host représente <app-header> */
-  flex: 0 0 10%;  /* 10% de la hauteur parent (qui est app-root à 100%) */
-  width: 100%;
-  display: flex;  /* si besoin d’un display flex */
+  // flex: 0 0 10%;  /* 10% de la hauteur parent (qui est app-root à 100%) */
+  // width: 100%;
+  // display: flex;  /* si besoin d’un display flex */
+// } 
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem 2rem 2rem;
+  height: var(--header-height);
+  background-color: var(--header-background-color);
+  color: var(--text-color);
+  position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  box-shadow: 0 4px 10px var(--button-border-color);
 }
 
-/* Ensuite, styliser le <header> interne si nécessaire */
-header {
-  width: 100%;
+.logo h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.navigation ul {
+  list-style: none;
   display: flex;
-  justify-content: center;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: bold;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.navigation a:hover {
+  color: var(--button-background-color);
+}
+
+.header-actions {
+  display: flex;
   align-items: center;
-  box-shadow: var(--button-border-color) 4px 4px 10px;
+  gap: 1rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 0.2rem 0.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  padding: 0.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+  cursor:cell;
+}
+
+.login a {
+  text-decoration: none;
+  color: #fff;
+  background-color: var(--button-background-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.login a:hover {
+  background-color: var(--button-border-color);
+}
+
+.active {
+  color: var(--button-background-color);
+  border-bottom: 2px solid var(--button-background-color);
+  font-weight: bold;
+}
+
+
+@media (max-width: 930px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 2rem 3rem 2rem;
+    height: auto;
+  }
+
+  .navigation ul {
+    // flex-direction: column;
+    margin: 1rem;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .header-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .login {
+    margin: 1rem;
+    a {
+      width: 100%;
+      text-align: center;
+    }
+  }
 }

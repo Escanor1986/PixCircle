@@ -3,6 +3,8 @@
 * {
   font-family: Roboto, Helvetica, sans-serif;
   box-sizing: border-box;
+  scroll-behavior: smooth; // si visible
+  scrollbar-width: none;
 }
 
 :root {
@@ -13,6 +15,7 @@
   --text-color: #4B4E6D; /* Deep grayish-blue for contrast */
   --header-background-color: #7A8FA6; /* Un bleu-gris pastel et apaisant */
   --f: .5em; /* control the folded part */
+  --header-height: 80px;
 }
 
 html, body {
