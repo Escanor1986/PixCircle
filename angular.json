@@ -63,7 +63,7 @@
               "src/styles.scss"
             ],
             "scripts": [],
-            "baseHref": "PixCircle"
+            "baseHref": "/"
           },
           "configurations": {
             "production": {
