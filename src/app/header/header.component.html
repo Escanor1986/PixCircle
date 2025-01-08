@@ -1,12 +1,13 @@
 <header>
   <div class="logo">
+    <img src="logo_pix_circle-modified.png" width="55" alt="Logo pixCircle" />
     <h1>PixCircle!</h1>
   </div>
   <nav class="navigation">
     <ul>
       <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="" >Accueil</a></li>
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="pixcircles">Your Pixs</a></li>
-      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a>À propos</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="pixcircles">Pixs</a></li>
+      <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="addpix">Add Pix</a></li>
       <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a>Contact</a></li>
     </ul>
   </nav>
@@ -15,7 +16,7 @@
       <input type="text" placeholder="Rechercher...">
       <button type="submit">🔍</button>
     </div>
-    <div class="login">
+    <div routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="login">
       <a>Connexion</a>
     </div>
   </div>

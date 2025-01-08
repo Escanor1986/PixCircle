@@ -8,12 +8,16 @@
 }
 
 :root {
-  --background-color: #A9C9FF; /* Pastel blue gradient */
-  --card-background-color: #FAD0C4; /* Soft peach gradient */
-  --button-background-color: #FFAAA7; /* Warm coral pastel */
-  --button-border-color: #FFDFD3; /* Light pinkish beige */
-  --text-color: #4B4E6D; /* Deep grayish-blue for contrast */
-  --header-background-color: #7A8FA6; /* Un bleu-gris pastel et apaisant */
+  --background-color: #a9c9ff; /* Bleu pastel */
+  --card-background-color: #fad0c4; /* Pêche douce */
+  --button-background-color: #ffaa7a; /* Corail chaud */
+  --button-border-color: #ffdfd3; /* Beige rosé */
+  --text-color: #4b4e6d; /* Bleu-gris profond */
+  --header-background-color: #7a8fa6; /* Bleu-gris apaisant */
+  --focus-color: #7a8fa6; /* Couleur de focus */
+  --valid-color: #28a745; /* Vert pour les champs valides */
+  --invalid-color: #dc3545; /* Rouge pour les champs invalides */
+  --input-bg-color: #ffffff; /* Fond des champs de saisie */
   --f: .5em; /* control the folded part */
   --header-height: 80px;
 }

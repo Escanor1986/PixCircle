@@ -1,12 +1,12 @@
 import { Component, Input } from '@angular/core';
-import { CommonModule, DatePipe, NgClass, NgStyle, TitleCasePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { PixCircle } from '../models/pix-circle';
-import { PixCircleServices } from '../services/pix-circle.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pix-list',
   // Importe les fonctionnalités de base (ngIf, ngFor, etc.)
-  imports: [CommonModule, NgClass, NgStyle, TitleCasePipe, DatePipe], 
+  imports: [CommonModule], 
   templateUrl: './pix-list.component.html',
   styleUrls: ['./pix-list.component.scss']
 })
@@ -17,22 +17,12 @@ export class PixListComponent {
   // Input  doit être ajouté aux imports depuis  @angular/core
   @Input() pixCircle!: PixCircle;
 
-  hasLiked!: boolean;
-  likeButton!: string;
+  constructor(private router: Router) {}
 
-  constructor(private pixCircleServices: PixCircleServices) {
-  }
-
-  ngOnInit(): void {
-    this.hasLiked = false;
-    this.likeButton = "Pix ?";
-  }
-
-  // Le nom de méthode qui commence par on signale que cette méthode répond à un événement.
-  onLike(): void {
-    this.hasLiked = !this.hasLiked; 
-    this.likeButton = this.hasLiked ? "UnPix ?" : "Pix ?";
-    this.hasLiked ? this.pixCircleServices.likePixById(this.pixCircle.id, 'liked') : this.pixCircleServices.likePixById(this.pixCircle.id, 'unliked');
+  // Cette méthode est utilise le service "Router" pour diriger vers une nouvelle route en incluans l'ID du  Pix sélectionné dans l'URL.
+  onViewPix() {
+    // La méthode navigateByUrl "construit" l'URL de destination en incluant l'ID demandé.
+    this.router.navigateByUrl(`pixcircles/${this.pixCircle.id}`)
   }
   
 }

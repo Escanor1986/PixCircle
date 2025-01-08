@@ -1,19 +1,4 @@
 <div class="card pix-circle-card">
-  <div class="ribbon" [ngClass]="{'liked': hasLiked}" >Liked !</div>
   <h2>{{ pixCircle.title }}</h2>
-  @if (pixCircle.location) {
-    <!-- il est fortement déconseillé d'utiliser les pipes ailleurs que dans une string interpolation -->
-  <p>Localisation : {{ pixCircle.location | titlecase }}</p>
-  } @else {
-  <p>Localisation non spécifiée</p>
-  }
-  <p>{{ pixCircle.description }}</p>
-  <!-- Avec le "Attribute Binding" Angular associe les valeurs des propriétés TypeScript aux attributs de l'élément HTML -->
-  <img [src]="pixCircle.imageUrl" [alt]="pixCircle.title">
-  <p>PixCircle créée le {{ pixCircle.createdDate | date: 'd MMMM yyyy, à HH:mm' }}</p>
-  <p>
-    <!-- Event Binding pour lier la méthode au click sur le button -->
-    <button (click)="onLike()">{{ likeButton }}</button>
-    <span [ngStyle]="{ color: 'rgb(0, ' + pixCircle.likes + ', 0)' }">👍 {{ pixCircle.likes }}</span>
-  </p>
+  <button (click)="onViewPix()">View Pix ?</button>
 </div>

@@ -1,0 +1,122 @@
+form {
+  background: var(--card-background-color);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 700px;
+  margin: 2rem auto;
+  font-family: 'Arial', sans-serif;
+  color: var(--text-color);
+
+  fieldset {
+    border: 2px solid var(--button-border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+
+    legend {
+      background: var(--header-background-color);
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      border-radius: 10px;
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+  }
+
+  label {
+    display: block;
+    margin: 1.5rem 0 0.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-transform: capitalize;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 2px solid var(--button-border-color);
+    border-radius: 8px;
+    background: var(--input-bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+    transform: scale(1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    will-change: transform, box-shadow;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.3s ease;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    }            
+
+    &:focus {
+      border-color: var(--focus-color);
+      box-shadow: 0 0 8px var(--focus-color);
+    }
+
+    &.ng-valid {
+      border-color: var(--valid-color);
+      box-shadow: 0 0 8px var(--valid-color);
+    }
+
+    &.ng-invalid.ng-touched {
+      border-color: var(--invalid-color);
+      box-shadow: 0 0 8px var(--invalid-color);
+    }
+  }
+
+  .error {
+    color: var(--invalid-color);
+    font-size: 0.875rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  input[type='submit'] {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background: var(--button-background-color);
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background: var(--button-border-color);
+      transform: scale(1.05);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  /* Design réactif */
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+
+    fieldset {
+      padding: 1.5rem;
+    }
+
+    input[type='submit'] {
+      font-size: 1rem;
+    }
+  }
+}

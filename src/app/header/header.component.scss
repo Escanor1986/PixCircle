@@ -1,16 +1,9 @@
-//  :host {
-  /* ici :host représente <app-header> */
-  // flex: 0 0 10%;  /* 10% de la hauteur parent (qui est app-root à 100%) */
-  // width: 100%;
-  // display: flex;  /* si besoin d’un display flex */
-// } 
-
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem 2rem 2rem;
-  height: var(--header-height);
+  // height: var(--header-height);
   background-color: var(--header-background-color);
   color: var(--text-color);
   position: relative;
@@ -18,9 +11,13 @@ header {
   box-shadow: 0 4px 10px var(--button-border-color);
 }
 
-.logo h1 {
-  margin: 0;
-  font-size: 1.5rem;
+.logo {
+  display: flex;
+  align-items: center;
+  h1 {
+    margin: 0 0 0 1rem;
+    font-size: 1.5rem;
+  }
 }
 
 .navigation ul {

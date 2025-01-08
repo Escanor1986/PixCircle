@@ -58,14 +58,27 @@ export class PixCircleServices {
     return [...this.myPixs];
   }
 
+  // Ajoute la nouvelle Pix provenant du formulaire au début du tableau
+  addPix(pix: PixCircle): void {
+    if (!pix) {
+      throw new Error('Entrée invalide !');
+    }
+    this.myPixs.unshift(pix); 
+  }
+  
+  // Méthode pour récupérer l'id du pixCircle dans single-pix-circle afin de paramétrer le router qui nous dirigera vers le lien demandé
+  getPixCircleById(pixCircleId: string): PixCircle {
+    const foundPixCircleById = this.myPixs.find(pixCircle => pixCircle.id === pixCircleId);
+    if (!foundPixCircleById) {
+      throw new Error(`Oups... Impossible de trouver l'ID : ${pixCircleId}`);
+    }
+    return foundPixCircleById;
+  }
+
   likePixById(pixCircleId: string, pixType: PixType): void {
     try {
-      const foundPixCircleById = this.myPixs.find(pixCircle => pixCircle.id === pixCircleId);
-      if (!foundPixCircleById) {
-        throw new Error;
-      } else {
-       foundPixCircleById.like(pixType);
-      }
+      const PixCircleById = this.getPixCircleById(pixCircleId);
+      PixCircleById.like(pixType);
     } catch(e) {
       console.log(`Oups... Seems we cannot find the right ID : ${e}`);
     }

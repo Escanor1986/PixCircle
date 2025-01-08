@@ -1,11 +1,10 @@
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
-  imports: [CommonModule, NgOptimizedImage, RouterLink],
+  imports: [CommonModule, NgOptimizedImage],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss'
 })

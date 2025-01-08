@@ -1,0 +1,37 @@
+<form [formGroup]="pixForm" (ngSubmit)="onSubmit()">
+  <fieldset>
+    <legend>Ajouter une nouvelle Pix</legend>
+
+    <label for="title">Titre de la Pix :</label>
+    <input type="text" id="title" formControlName="title" required />
+    <div *ngIf="pixForm.get('title')?.invalid && pixForm.get('title')?.touched" class="error">
+      Le titre est requis et doit comporter moins de 100 caractères.
+    </div>
+
+    <label for="description">Description :</label>
+    <textarea id="description" formControlName="description" required></textarea>
+    <div *ngIf="pixForm.get('description')?.invalid && pixForm.get('description')?.touched" class="error">
+      La description est requise et doit comporter moins de 500 caractères.
+    </div>
+
+    <label for="createdDate">Date de création :</label>
+    <input type="date" id="createdDate" formControlName="createdDate" required />
+    <div *ngIf="pixForm.get('createdDate')?.invalid && pixForm.get('createdDate')?.touched" class="error">
+      La date de création est requise.
+    </div>
+
+    <label for="imageUrl">URL de l'image :</label>
+    <input type="url" id="imageUrl" formControlName="imageUrl" required />
+    <div *ngIf="pixForm.get('imageUrl')?.invalid && pixForm.get('imageUrl')?.touched" class="error">
+      Une URL valide est requise.
+    </div>
+
+    <label for="location">Emplacement :</label>
+    <input type="text" id="location" formControlName="location" />
+    <div *ngIf="pixForm.get('location')?.invalid && pixForm.get('location')?.touched" class="error">
+      L'emplacement doit comporter moins de 100 caractères.
+    </div>
+
+    <input type="submit" value="Ajouter la Pix" [disabled]="pixForm.invalid" />
+  </fieldset>
+</form>
