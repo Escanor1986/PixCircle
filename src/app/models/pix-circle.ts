@@ -27,7 +27,6 @@ export class PixCircle {
     this.likes = likes;
     this.location = location; // La localisation est optionnelle, elle peut être undefined
     this.id = crypto.randomUUID().substring(0, 20);
-    console.table(this);
   }
 
   // Méthode pour ajouter un "like" à l'image
