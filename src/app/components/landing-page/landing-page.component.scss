@@ -106,6 +106,7 @@ section {
       text-align: center;
       padding: 1rem;        /* réduit les paddings sur mobile */
       box-sizing: border-box;
+      margin-bottom: 1rem;
     }
 
     aside {       /* on retire la contrainte de 60% en mobile */
@@ -116,7 +117,10 @@ section {
         img {
           width: 100%;
           height: auto;     /* Garde le ratio si object-fit: cover */
-          object-fit: cover; 
+          object-fit: cover;
+          border-radius: 2rem; 
+          margin-right: 1rem;
+          padding: 1rem;
         }
       }
     }
