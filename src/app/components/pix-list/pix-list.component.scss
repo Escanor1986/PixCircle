@@ -50,7 +50,7 @@
   transform: translate(calc((1 - cos(45deg))*100%), -100%) rotate(45deg);
   transform-origin: 0% 100%;
   background-color: var(--button-background-color);
-  
+
   /* Permet de rendre l'élément visible/invisible avec une transition fluide */
   opacity: 0;
   /* Masque complètement l'élément quand il est invisible pour éviter qu'il occupe de l'esapce dans le DOM */
